@@ -10,7 +10,23 @@ const Template = (args) => <Technologies {...args} />
 
 export const Default = Template.bind({});
 Default.args = {
+  title: 'Tecnologies',
   technologies: [
+    {
+      name: 'Front end',
+      techs: ['HTML, CSS', 'JavaScript', 'ReactJS', 'React Hooks', 'Redux', 'React Context'],
+      imgSrc: frontend
+    },
+    {
+      name: 'Front end',
+      techs: ['HTML, CSS', 'JavaScript', 'ReactJS', 'React Hooks', 'Redux', 'React Context'],
+      imgSrc: frontend
+    },
+    {
+      name: 'Front end',
+      techs: ['HTML, CSS', 'JavaScript', 'ReactJS', 'React Hooks', 'Redux', 'React Context'],
+      imgSrc: frontend
+    },
     {
       name: 'Front end',
       techs: ['HTML, CSS', 'JavaScript', 'ReactJS', 'React Hooks', 'Redux', 'React Context'],

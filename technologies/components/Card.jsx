@@ -1,24 +1,26 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
+import GlobalStyles from '../../styles/GlobalStyles';
+import { device } from "../../styles/sizes";
 
 const Card = ({ technology }) => {
   return (
     <>
       <GlobalStyles />
-      <Container>
+      <CardContainer id='CardContainer'>
         {'technology.imgSrc', console.log(technology.imgSrc)}
-        <ImgContainer>
+        <ImgContainer id='ImgContaienr'>
           <Img src={technology.imgSrc} alt={technology.name} />
         </ImgContainer>
-        <TitleContainer>
-          <CardTitle>{technology.name}</CardTitle>
+        <TitleContainer id='TitleContainer'>
+          <CardTitle id='CardTitle'>{technology.name}</CardTitle>
         </TitleContainer>
-        <TecnologiesContainer>
+        <TecnologiesContainer id='TecnologiesContainer'>
           {technology.techs.map(tech => {
-            return <Technology key={tech}>{tech}</Technology>
+            return <Technology id='Technology' key={tech}>{tech}</Technology>
           })}
         </TecnologiesContainer>
-      </Container>
+      </CardContainer>
     </>
   )
 }
@@ -26,28 +28,34 @@ const Card = ({ technology }) => {
 export default Card
 
 const ImgContainer = styled.div`
-
+  display:flex;
+  justify-content:center;
+  width:100%;
 `
 
 const Img = styled.img`
-  width:100%;
-`
+  width:50%;
+  @media ${device.mobileS}{
+    width:70%;
+  }
+`;
 
 const TitleContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   padding:2rem 0;
-`
+`;
+
 const CardTitle = styled.h4`
   color: black;
-`
+`;
 
 const TecnologiesContainer = styled.div`
   display: grid;
   text-align:center;
   row-gap: 12px;
-`
+`;
 
 const Technology = styled.div`
   color: white;
@@ -55,25 +63,17 @@ const Technology = styled.div`
   border-radius:50px;
   font-size:18px;
   padding: 14px 0;
-`
+`;
 
-const Container = styled.div`
-  border-radius:10px;
+const CardContainer = styled.div`
+  display:flex;
+  flex-direction:column;
   background:white;
-  width:20rem;
+  width:100%;
   height:fit-content;
-  padding:2rem;
-`
-
-const GlobalStyles = createGlobalStyle`
-* {
-  margin: 0;
-  padding: 0;
-  outline: 0;
-  box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
-} 
-#root {
-  margin:0 auto;
-}
-`
+  padding:3rem;
+  max-width:25rem;
+  @media ${device.mobileS}{
+    border-radius:10px;
+  }
+`;
