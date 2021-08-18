@@ -35,7 +35,10 @@ const TitleContainer = styled.div`
 
 const Title = styled.h2`
   color:white;
-  font-size:3rem;
+  font-size:2rem;
+  @media ${device.mobileM}{
+    font-size:3rem;
+  }
 `
 
 const CardGrid = styled.div`
